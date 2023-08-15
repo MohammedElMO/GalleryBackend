@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "target": "es6",
+    "baseUrl": "src",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowArbitraryExtensions": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "lib": ["es2015"]
+}
