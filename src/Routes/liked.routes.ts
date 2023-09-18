@@ -8,4 +8,6 @@ likedRoute.post("/", (req, res) =>
 )
 likedRoute.get("/", (req, res) => LikedImageInstance(req, res).getLikedImages())
 
+
+
 export default likedRoute

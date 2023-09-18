@@ -7,18 +7,29 @@ class LikedImagesController {
   ) {}
   async setLikedImages() {
     try {
+      const imgUrl = this.req.body.url
+      const img = await LikedModel.findOne({ url: imgUrl })
+      if (img) return this.res.send({ state: "image Exists already!" })
+
       await LikedModel.create({
         ...this.req.body,
       })
       this.res.send({ state: "success" })
-      console.log("man")
     } catch (ex) {
-      this.res.status(400).send(ex)
+      this.res.status(400).send({ state: "failure" })
     }
   }
   async getLikedImages() {
     try {
-      const likedImages = await LikedModel.find()
+      const likedImages = await LikedModel.find().select([
+        "url",
+        "alt",
+        "liked",
+        "src.small",
+        "src.landscape",
+        "photographer",
+      ])
+
       this.res.send(likedImages)
     } catch (ex) {
       this.res.status(400).send(ex)
