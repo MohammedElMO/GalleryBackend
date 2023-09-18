@@ -9,7 +9,10 @@ export default function useRoutes(app: Express) {
   app.use(json())
   app.use(
     cors({
-      origin: "https://gallery-ar8hf5x64-mohammedelmo.vercel.app",
+      origin: [
+        "https://gallery-ar8hf5x64-mohammedelmo.vercel.app",
+        "https://frontend-henna-alpha.vercel.app",
+      ],
       optionsSuccessStatus: 200,
     }),
   )
