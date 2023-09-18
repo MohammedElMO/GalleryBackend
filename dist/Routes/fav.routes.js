@@ -1,7 +1,9 @@
-import { Router } from "express";
-import { favImageInstance } from "../controllers/FavImageController";
-const FavRouter = Router();
-FavRouter.post("/", (req, res) => favImageInstance(req, res).setFavImg());
-FavRouter.get("/", (req, res) => favImageInstance(req, res).getFavImages());
-FavRouter.delete("/", (req, res) => favImageInstance(req, res).deleteAllFavs());
-export default FavRouter;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const FavImageController_1 = require("../controllers/FavImageController");
+const FavRouter = (0, express_1.Router)();
+FavRouter.post("/", (req, res) => (0, FavImageController_1.favImageInstance)(req, res).setFavImg());
+FavRouter.get("/", (req, res) => (0, FavImageController_1.favImageInstance)(req, res).getFavImages());
+FavRouter.delete("/", (req, res) => (0, FavImageController_1.favImageInstance)(req, res).deleteAllFavs());
+exports.default = FavRouter;

@@ -1,4 +1,4 @@
-import useRoutes from "./Routes/index.routes"
+import useRoutes from "./Routes"
 import connectDb from "./db/mongoConnection"
 import "dotenv/config"
 import express from "express"

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "ESNext", // or "ES6"
+    "module": "CommonJS", // or "ES6"
     "outDir": "./dist",
     "rootDir": "./src",
     "moduleResolution": "Node",

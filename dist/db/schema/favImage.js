@@ -1,5 +1,8 @@
-import { Schema, model } from "mongoose";
-const FavImageSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.favModel = void 0;
+const mongoose_1 = require("mongoose");
+const FavImageSchema = new mongoose_1.Schema({
     url: String,
     photographer: String,
     photographer_url: String,
@@ -12,4 +15,4 @@ const FavImageSchema = new Schema({
     },
     alt: String,
 });
-export const favModel = model("favImages", FavImageSchema);
+exports.favModel = (0, mongoose_1.model)("favImages", FavImageSchema);

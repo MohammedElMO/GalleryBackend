@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,7 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { AlbumModel } from "../db/schema/Album";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Album = void 0;
+const Album_1 = require("../db/schema/Album");
 class AlbumController {
     constructor(req, res) {
         this.req = req;
@@ -17,12 +20,12 @@ class AlbumController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const albumName = this.req.body.albumName;
-                const existed = yield AlbumModel.findOne({ albumName });
+                const existed = yield Album_1.AlbumModel.findOne({ albumName });
                 if (existed)
                     return this.res.send({
                         state: `this album Aleardy Exist with the name ${existed.albumName}`,
                     });
-                const album = yield AlbumModel.create(Object.assign({}, this.req.body));
+                const album = yield Album_1.AlbumModel.create(Object.assign({}, this.req.body));
                 this.res.send({ state: "success" });
             }
             catch (ex) {
@@ -33,7 +36,7 @@ class AlbumController {
     getAlbums() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const albums = yield AlbumModel.find();
+                const albums = yield Album_1.AlbumModel.find();
                 this.res.send(albums);
             }
             catch (ex) {
@@ -48,7 +51,7 @@ class AlbumController {
                 const ids = (_a = this.req.get("Ids")) === null || _a === void 0 ? void 0 : _a.split(",");
                 if (ids)
                     ids.forEach((id) => __awaiter(this, void 0, void 0, function* () {
-                        yield AlbumModel.findByIdAndRemove(id);
+                        yield Album_1.AlbumModel.findByIdAndRemove(id);
                     }));
                 console.log(ids);
                 this.res.send({ state: "Suceess" });
@@ -61,7 +64,7 @@ class AlbumController {
     getAllNames() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const albumsName = yield AlbumModel.find().select("albumName");
+                const albumsName = yield Album_1.AlbumModel.find().select("albumName");
                 this.res.send(albumsName);
             }
             catch (ex) {
@@ -73,7 +76,7 @@ class AlbumController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const sentName = this.req.params.albumName;
-                const SelectedAlbum = yield AlbumModel.findOneAndUpdate({
+                const SelectedAlbum = yield Album_1.AlbumModel.findOneAndUpdate({
                     albumName: sentName,
                 }, {
                     $push: {
@@ -88,4 +91,5 @@ class AlbumController {
         });
     }
 }
-export const Album = (req, res) => new AlbumController(req, res);
+const Album = (req, res) => new AlbumController(req, res);
+exports.Album = Album;

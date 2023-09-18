@@ -1,5 +1,11 @@
-import mongoose from "mongoose";
-export const LikedImagesSchema = new mongoose.Schema({
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LikedModel = exports.LikedImagesSchema = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+exports.LikedImagesSchema = new mongoose_1.default.Schema({
     url: String,
     photographer: String,
     photographer_url: String,
@@ -14,4 +20,4 @@ export const LikedImagesSchema = new mongoose.Schema({
     liked: Boolean,
     alt: String,
 });
-export const LikedModel = mongoose.model("LikedImages", LikedImagesSchema);
+exports.LikedModel = mongoose_1.default.model("LikedImages", exports.LikedImagesSchema);

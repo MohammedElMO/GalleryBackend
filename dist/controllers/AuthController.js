@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,7 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { authModel } from "../db/schema/authSchma";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthInstance = void 0;
+const authSchma_1 = require("../db/schema/authSchma");
 class AuthController {
     constructor(req, res) {
         this.req = req;
@@ -17,12 +20,12 @@ class AuthController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userMail = this.req.body.email;
-                const user = yield authModel.findOne({ email: userMail });
+                const user = yield authSchma_1.authModel.findOne({ email: userMail });
                 if (user)
                     return this.res
                         .status(403)
                         .send({ warning: "this email have been used" });
-                const rigesterUser = yield authModel.create(Object.assign({}, this.req.body));
+                const rigesterUser = yield authSchma_1.authModel.create(Object.assign({}, this.req.body));
                 this.res.send(rigesterUser);
                 // const token = rigesterUser.injectToken()
                 // this.res.header("auth-token", token).send({ state: "success" })
@@ -36,4 +39,5 @@ class AuthController {
         return __awaiter(this, void 0, void 0, function* () { });
     }
 }
-export const AuthInstance = (req, res) => new AuthController(req, res);
+const AuthInstance = (req, res) => new AuthController(req, res);
+exports.AuthInstance = AuthInstance;

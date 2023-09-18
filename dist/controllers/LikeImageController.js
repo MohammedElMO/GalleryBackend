@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,7 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { LikedModel } from "../db/schema/LikedImages";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LikedImageInstance = void 0;
+const LikedImages_1 = require("../db/schema/LikedImages");
 class LikedImagesController {
     constructor(req, res) {
         this.req = req;
@@ -17,10 +20,10 @@ class LikedImagesController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const imgUrl = this.req.body.url;
-                const img = yield LikedModel.findOne({ url: imgUrl });
+                const img = yield LikedImages_1.LikedModel.findOne({ url: imgUrl });
                 if (img)
                     return this.res.send({ state: "image Exists already!" });
-                yield LikedModel.create(Object.assign({}, this.req.body));
+                yield LikedImages_1.LikedModel.create(Object.assign({}, this.req.body));
                 this.res.send({ state: "success" });
             }
             catch (ex) {
@@ -31,7 +34,7 @@ class LikedImagesController {
     getLikedImages() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const likedImages = yield LikedModel.find().select([
+                const likedImages = yield LikedImages_1.LikedModel.find().select([
                     "url",
                     "alt",
                     "liked",
@@ -47,4 +50,5 @@ class LikedImagesController {
         });
     }
 }
-export const LikedImageInstance = (req, res) => new LikedImagesController(req, res);
+const LikedImageInstance = (req, res) => new LikedImagesController(req, res);
+exports.LikedImageInstance = LikedImageInstance;
