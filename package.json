@@ -8,6 +8,9 @@
     "start": "nodemon",
     "build": "tsc"
   },
+  "engines": {
+    "node": "<=18"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
