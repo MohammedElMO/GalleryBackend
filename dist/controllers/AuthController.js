@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { authModel } from "../db/schema/authSchma.ts";
+import { authModel } from "../db/schema/authSchma";
 class AuthController {
     constructor(req, res) {
         this.req = req;

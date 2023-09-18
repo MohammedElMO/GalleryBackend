@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { AlbumModel } from "../db/schema/Album.ts";
+import { AlbumModel } from "../db/schema/Album";
 class AlbumController {
     constructor(req, res) {
         this.req = req;

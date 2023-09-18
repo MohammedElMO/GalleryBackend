@@ -1,5 +1,4 @@
 import { AlbumModel } from "../db/schema/Album"
-import { favModel } from "../db/schema/favImage"
 import type { Request, Response } from "express"
 
 class AlbumController {

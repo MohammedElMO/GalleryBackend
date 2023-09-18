@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Album } from "../controllers/Albumcontroller.ts";
+import { Album } from "../controllers/Albumcontroller";
 const AlbumRouter = Router();
 AlbumRouter.post("/", (req, res) => Album(req, res).setAlbums());
 AlbumRouter.get("/", (req, res) => Album(req, res).getAlbums());

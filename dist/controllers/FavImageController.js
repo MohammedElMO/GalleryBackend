@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { favModel } from "../db/schema/favImage.ts";
+import { favModel } from "../db/schema/favImage";
 class FavImage {
     constructor(req, res) {
         this.req = req;
