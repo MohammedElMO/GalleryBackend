@@ -1,5 +1,5 @@
-import useRoutes from "./Routes/index.routes.ts"
-import connectDb from "./db/mongoConnection.ts"
+import useRoutes from "./Routes/index.routes"
+import connectDb from "./db/mongoConnection"
 import "dotenv/config"
 import express from "express"
 
@@ -7,7 +7,6 @@ connectDb()
 
 const app = express()
 
-app.use(express.json())
 
 useRoutes(app)
 

@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { LikedImagesSchema } from "./LikedImages.ts"
+import { LikedImagesSchema } from "./LikedImages"
 
 const AlbumSchema = new mongoose.Schema({
   content: {

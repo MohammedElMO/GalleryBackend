@@ -1,4 +1,4 @@
-import { LikedModel } from "../db/schema/LikedImages.ts"
+import { LikedModel } from "../db/schema/LikedImages"
 import type { Request, Response } from "express"
 class LikedImagesController {
   constructor(
