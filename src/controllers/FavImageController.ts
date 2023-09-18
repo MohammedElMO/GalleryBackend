@@ -1,4 +1,4 @@
-import { favModel } from "../db/schema/favImage.ts"
+import { favModel } from "../db/schema/favImage"
 import type { Request, Response } from "express"
 class FavImage {
   constructor(

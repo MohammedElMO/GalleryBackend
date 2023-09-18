@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { favImageInstance } from "../controllers/FavImageController.ts"
+import { favImageInstance } from "../controllers/FavImageController"
 
 const FavRouter = Router()
 

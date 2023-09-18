@@ -1,4 +1,4 @@
-import { LikedImageInstance } from "../controllers/LikeImageController.ts"
+import { LikedImageInstance } from "../controllers/LikeImageController"
 import { Router } from "express"
 
 const likedRoute = Router()

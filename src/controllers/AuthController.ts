@@ -1,5 +1,5 @@
 import type { Request, Response } from "express"
-import { authModel } from "../db/schema/authSchma.ts"
+import { authModel } from "../db/schema/authSchma"
 
 class AuthController {
   constructor(
